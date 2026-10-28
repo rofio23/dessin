@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier — dessin en ligne</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="panel" aria-label="Outils">
+    <h1>Atelier</h1>
+
+    <section>
+      <h2>Outil</h2>
+      <div class="tools" role="radiogroup">
+        <button class="tool active" data-tool="brush" title="Pinceau (B)">Pinceau</button>
+        <button class="tool" data-tool="eraser" title="Gomme (E)">Gomme</button>
+        <button class="tool" data-tool="line" title="Ligne (L)">Ligne</button>
+        <button class="tool" data-tool="rect" title="Rectangle (R)">Rectangle</button>
+        <button class="tool" data-tool="circle" title="Cercle (C)">Cercle</button>
+        <button class="tool" data-tool="fill" title="Pot de peinture (F)">Remplir</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Couleur</h2>
+      <div class="swatches" id="swatches"></div>
+      <label class="row">Personnalisée
+        <input type="color" id="color" value="#1f2a44">
+      </label>
+    </section>
+
+    <section>
+      <h2>Pinceau</h2>
+      <label class="row">Taille <output id="sizeOut">8</output> px
+        <input type="range" id="size" min="1" max="80" value="8">
+      </label>
+      <label class="row">Opacité <output id="opacityOut">100</output> %
+        <input type="range" id="opacity" min="5" max="100" value="100">
+      </label>
+      <label class="row">Forme du bout
+        <select id="cap">
+          <option value="round">Rond</option>
+          <option value="square">Carré</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="fillShape"> Formes remplies</label>
+    </section>
+
+    <section>
+      <h2>Fond</h2>
+      <label class="row">Couleur du fond
+        <input type="color" id="bg" value="#ffffff">
+      </label>
+    </section>
+
+    <section class="actions">
+      <button id="undo">Annuler</button>
+      <button id="redo">Rétablir</button>
+      <button id="clear">Effacer tout</button>
+      <button id="save" class="primary">Enregistrer en PNG</button>
+    </section>
+  </aside>
+
+  <main class="stage" id="stage">
+    <canvas id="canvas"></canvas>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
